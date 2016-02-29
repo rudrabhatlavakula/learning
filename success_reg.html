@@ -1,0 +1,27 @@
+
+<html>
+<script LANGUAGE="JavaScript">
+  function getParams(){
+  var idx = document.URL.indexOf('?');
+  var params = new Array();
+  if (idx != -1) {
+    var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+  for (var i=0; i<pairs.length; i++){
+    nameVal = pairs[i].split('=');
+    params[nameVal[0]] = nameVal[1];
+    }
+  }
+  return params;
+ }
+params = getParams();
+father = unescape(params["father"]);
+mother_name = unescape(params["mother_name"]);
+age = unescape(params["age"]);
+document.write("father = " + father + "<br>");
+document.write("mother_name = " + mother_name + "<br>");
+</script>
+<form>
+<h1 align="center"> successfully uploaded</h1>
+</form>
+</body>
+</html>

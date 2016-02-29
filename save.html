@@ -1,0 +1,203 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+
+}
+  </script>
+<body>
+<form action="sucess_reg.html" id="register-form" method="post" onsubmit="return checkforBlank();"> 
+<table>
+<tr>
+	<td>
+		 father/husbands name
+	</td>
+	<td>
+		<input type="text" id="father/husbands" name="father/husbands" >
+	</td>
+</tr>
+<tr>
+	<td>
+		Mother Name
+	</td>
+	<td>
+		<input type="text" id="mother_name" name="mother_name">
+	</td>
+</tr>
+<tr>
+	<td>
+		Date of Birth
+	</td>
+	<td>
+		<input type="date" id="dob" name="dob">
+	</td>
+</tr>
+<tr>
+	<td>
+		Road/street no:
+	</td>
+	<td>
+		<input type="text" id="add1" name="add1">
+	</td>
+	<td>
+		Landmark
+	</td>
+	<td>
+		<input type="text" id="add2" name="add2"> 
+	</td>
+</tr>
+<tr>
+	<td>
+		locality
+	</td>
+	<td>
+		<input type="text" id="add3" name="add3">
+	</td>
+	<td>
+		City
+	</td>
+	<td>
+		<input type="text" id="add4" name="add4">
+	</td>
+</tr>
+<tr>
+	<td>
+		State
+	</td>
+	<td>
+		
+		<input type="text" id="add5" name="add5">
+		
+	</td>
+	<td>
+		Pin Code
+	</td>
+	<td>
+		
+		<input type="text" id="pin" name="pin">
+		
+	</td>
+</tr>
+<tr>
+	<td>
+		Phone No.
+	</td>
+	<td>
+		<input type="text" id="Ph_no" name="Ph_no">
+	</td>
+
+	<td>
+		Alternative Phone No.
+	</td>
+	<td>
+		<input type="text" id="A_Ph_no" name="A_Ph_no">
+	</td>
+</tr>
+<tr>
+	<td>
+		Photo
+	</td>
+	<td>
+		
+		<input type="file" name="photo" id="my_file">
+	</td>
+	<td>
+		<input type="button" id="img" value="upload">
+	</td>
+</tr>
+<tr>
+	<td>
+		upload video
+	</td>
+		<td>
+			<input type="file" accept="file_extension|video/*|audio/*" name="video" id="my_file">
+		</td>
+		<td>
+			<input type="button" id="video" value="upload" name="t12">
+		</td>
+</tr>
+	<tr><td>Text to Save:</td></tr>
+	<tr>
+		<td colspan="3">
+			<textarea id="inputTextToSave" style="width:512px;height:256px"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td>Filename to Save As:</td>
+		<td><input id="inputFileNameToSaveAs"></input></td>
+		<td><button onclick="saveTextAsFile()">Save Text to File</button></td>
+	</tr>
+	<tr>
+		<td>Select a File to Load:</td>
+		<td><input type="file" id="fileToLoad"></td>
+		<td><button onclick="loadFileAsText()">Load Selected File</button><td>
+	</tr>
+</table>
+<input type="submit" value="submit">
+<script type='text/javascript'>
+function data(){
+	var  = document.getElementById("").value;
+	var mother_name = document.getElementById("mother_name").value;
+	var dob = document.getElementById("dob").value;
+	var add1 = document.getElementById("add1").value;
+	var add2 = document.getElementById("add2").value;
+	var add3 = document.getElementById("add3").value;
+	var add4 = document.getElementById("add4").value;
+	var add5 = document.getElementById("add5").value;
+	var pin = document.getElementById("pin").value;
+	var Ph_no = document.getElementById("Ph_no").value;
+	var A_Ph_no = document.getElementById("A_Ph_no").value;
+	var photo = document.getElementById("photo").value;
+	
+	var details = + +mother_name +dob +add1 +add2 +add3 +add4 +pin +Ph_no +A_Ph_no ;
+	var inputTextToSave = details;
+  }
+function saveTextAsFile()
+{
+	var textToWrite = document.getElementById("inputTextToSave").value;
+	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+	var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+
+	var downloadLink = document.createElement("a");
+	downloadLink.download = fileNameToSaveAs;
+	downloadLink.innerHTML = "Download File";
+	if (window.webkitURL != null)
+	{
+		
+		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+	}
+	else
+	{
+		
+		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+		downloadLink.onclick = destroyClickedElement;
+		downloadLink.style.display = "none";
+		document.body.appendChild(downloadLink);
+	}
+
+	downloadLink.click();
+}
+
+function destroyClickedElement(event)
+{
+	document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+	var fileToLoad = document.getElementById("fileToLoad").files[0];
+
+	var fileReader = new FileReader();
+	fileReader.onload = function(fileLoadedEvent) 
+	{
+		var textFromFileLoaded = fileLoadedEvent.target.result;
+		document.getElementById("inputTextToSave").value = textFromFileLoaded;
+	};
+	fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+
+<script>
+function check1(){
+	var first_name = document.getElementById("first_name").value; 
+	var last_name = document.getElementById("last_name").value;
+	var gender = document.getElementById("gender").value; 
+	var user_id = document.getElementById("user_id").value;
+	if(first_name == ""|| last_name =="" || gender == "" || user_id == "" || pwd == ""|| C_pwd == "" )
+	{
+		alert("please enter all the filled ");
+		return false;
+	}
+	else{
+		return true;
+	}
+
+ 
+}
+
+</script>
+
+</head>
+<body background="D:\tanveer\new.jpg" width="100" height="100">
+<form action="student_reg.html" method="post" onsubmit="return check1();" >
+<h1 align="center">Sign up here</h1>
+<br>
+<br>
+<table align="center">
+	<tr>
+		<td>
+			First Name
+		</td>
+		<td>
+			<input type="text" id="first_name" name="first_name">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Last Name
+		</td>
+		<td>
+			<input type="text" id="last_name" name="last_name" >
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Gender
+		</td>
+		<td>
+			<input type="radio" name="gender" id="gender" value="male" checked> Male
+			<input type="radio" name="gender" id="gender" value="female"> Female
+		</td>
+	</tr>
+	<tr>
+		<td>
+			User Id
+		</td>
+		<td>
+			<input type="text" id="user_id" name="user_id">
+		</td>
+	<tr>
+		<td>
+			Password
+		</td>
+		<td>
+			<input type="password" id="pwd" name="pwd">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Confirm Password
+		</td>
+		<td>
+			<input type="password" name="C_pwd">
+		</td>
+	</tr>
+	<tr>
+		<th colspan="2">
+		<input type="submit" value="Sign up" >
+		</th>
+	</tr>
+</table>
+
+</form>
+</body>
+</html>
